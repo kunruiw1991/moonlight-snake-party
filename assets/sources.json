@@ -1,0 +1,100 @@
+[
+  {
+    "path": "assets/guests/critter_01_lunabat.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_01_lunabat.webp"
+  },
+  {
+    "path": "assets/guests/critter_02_sunnyfox.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_02_sunnyfox.webp"
+  },
+  {
+    "path": "assets/guests/critter_03_poppydash.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_03_poppydash.webp"
+  },
+  {
+    "path": "assets/guests/critter_04_catnap.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_04_catnap.webp"
+  },
+  {
+    "path": "assets/guests/critter_05_dogday.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_05_dogday.webp"
+  },
+  {
+    "path": "assets/guests/critter_06_bobby.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_06_bobby.webp"
+  },
+  {
+    "path": "assets/guests/critter_07_hoppy.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_07_hoppy.webp"
+  },
+  {
+    "path": "assets/guests/critter_08_craftycorn.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_08_craftycorn.webp"
+  },
+  {
+    "path": "assets/guests/critter_09_bubba.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_09_bubba.webp"
+  },
+  {
+    "path": "assets/guests/critter_10_kickin.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_10_kickin.webp"
+  },
+  {
+    "path": "assets/guests/critter_11_picky.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_11_picky.webp"
+  },
+  {
+    "path": "assets/guests/critter_12_babachops.webp",
+    "sourceRepository": "kunruiw1991/critters-calabash-brothers",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/critter_12_babachops.webp"
+  },
+  {
+    "path": "assets/guests/jj.webp",
+    "sourceRepository": "kunruiw1991/mikey-jj-assets",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/jj.webp"
+  },
+  {
+    "path": "assets/guests/mikey.webp",
+    "sourceRepository": "kunruiw1991/mikey-jj-assets",
+    "reusedFrom": "kunruiw1991/mid-autumn-reunion-party/assets/guests/mikey.webp"
+  },
+  {
+    "path": "assets/scenes/moon.svg",
+    "sourceRepository": "kunruiw1991/mid-autumn-legend-assets",
+    "sourceFile": "001_月宫_01.svg",
+    "modifications": "Removed SVG text labels for pre-readers"
+  },
+  {
+    "path": "assets/scenes/garden.svg",
+    "sourceRepository": "kunruiw1991/mid-autumn-legend-assets",
+    "sourceFile": "031_桂花_01.svg",
+    "modifications": "Removed SVG text labels for pre-readers"
+  },
+  {
+    "path": "assets/scenes/stars.svg",
+    "sourceRepository": "kunruiw1991/mid-autumn-legend-assets",
+    "sourceFile": "091_星河_01.svg",
+    "modifications": "Removed SVG text labels for pre-readers"
+  },
+  {
+    "stream": "https://kunruiw1991.github.io/lumipop-kids-tv/videos/dh_02_golden_lyrics.mp4",
+    "sourceRepository": "kunruiw1991/lumipop-kids-tv",
+    "usage": "Audio playback from existing video, no redirect"
+  },
+  {
+    "stream": "https://kunruiw1991.github.io/lumipop-kids-tv/videos/dh_01_soda_pop.mp4",
+    "sourceRepository": "kunruiw1991/lumipop-kids-tv",
+    "usage": "Audio playback from existing video, no redirect"
+  }
+]

@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createGame,turn,step,bubble,emptyCell,COLS} from '../engine.mjs';
+const fresh=()=>createGame({rng:()=>.42});
+test('reverse turns rejected; two quick corners execute on separate ticks',()=>{const g=fresh();assert.equal(turn(g,'left'),false);assert(turn(g,'up'));assert(turn(g,'left'));step(g);assert.equal(g.dir,'up');step(g);assert.equal(g.dir,'left')});
+test('food grows snake and scores exactly once',()=>{const g=fresh();g.food=[{x:7,y:8,type:'gold'}];const n=g.snake.length;step(g);assert.equal(g.score,30);assert.equal(g.eaten,1);assert.equal(g.snake.length,n+1);step(g);assert.equal(g.score,30)});
+test('gentle edges wrap without losing hearts',()=>{const g=fresh();g.snake=[{x:COLS-1,y:4},{x:COLS-2,y:4}];step(g);assert.equal(g.snake[0].x,0);assert.equal(g.hearts,3)});
+test('classic wall costs one life and gives recovery shield',()=>{const g=createGame({gentle:false});g.snake=[{x:19,y:4},{x:18,y:4}];step(g);assert.equal(g.hearts,2);assert(g.shield>0);assert.equal(g.playing,true)});
+test('moving into vacated tail is legal',()=>{const g=fresh();g.snake=[{x:4,y:4},{x:4,y:5},{x:3,y:5},{x:3,y:4}];g.dir='left';g.food=[];step(g);assert.equal(g.hearts,3);assert.deepEqual(g.snake[0],{x:3,y:4})});
+test('self-collision preserves score and resets body safely',()=>{const g=fresh();g.snake=[{x:4,y:4},{x:4,y:5},{x:3,y:5},{x:3,y:4},{x:2,y:4}];g.dir='left';g.score=90;step(g);assert.equal(g.hearts,2);assert.equal(g.score,90);assert.equal(g.snake.length,4)});
+test('bubble prevents self-collision damage, has cooldown',()=>{const g=fresh();g.snake=[{x:4,y:4},{x:4,y:5},{x:3,y:5},{x:3,y:4},{x:2,y:4}];g.dir='left';assert(bubble(g));assert.equal(bubble(g),false);step(g);assert.equal(g.hearts,3);assert.equal(new Set(g.snake.map(p=>`${p.x},${p.y}`)).size,g.snake.length)});
+test('magnet collects nearby items and applies score',()=>{const g=fresh();g.magnet=10;g.food=[{x:8,y:8,type:'cake'},{x:7,y:9,type:'gold'}];step(g);assert.equal(g.score,40);assert.equal(g.eaten,2)});
+test('win requires collection goal; result cannot change score later',()=>{const g=fresh();g.eaten=g.goal-1;g.food=[{x:7,y:8,type:'cake'}];step(g);assert.equal(g.result,'win');assert.equal(g.playing,false);assert.equal(g.score,10);step(g);assert.equal(g.score,10)});
+test('third unshielded collision ends round with retry, not a false win',()=>{const g=createGame({gentle:false});for(let i=0;i<3;i++){g.shield=0;g.snake=[{x:19,y:4},{x:18,y:4}];g.dir='right';step(g)}assert.equal(g.hearts,0);assert.equal(g.result,'retry')});
+test('spawns stay off snake and other food; full board returns null',()=>{for(let i=0;i<100;i++){const g=createGame();assert.equal(new Set(g.food.map(p=>`${p.x},${p.y}`)).size,g.food.length);assert(g.food.every(f=>!g.snake.some(s=>s.x===f.x&&s.y===f.y)))}const g=fresh();g.snake=[];g.food=[];for(let y=1;y<15;y++)for(let x=1;x<19;x++)g.snake.push({x,y});assert.equal(emptyCell(g),null)});
+test('fresh round resets score, controls, lives and buffs',()=>{const a=fresh();bubble(a);turn(a,'up');a.score=500;const b=fresh();assert.equal(b.score,0);assert.equal(b.hearts,3);assert.equal(b.queue.length,0);assert.equal(b.shield,0)});
